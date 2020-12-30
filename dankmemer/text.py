@@ -6,7 +6,7 @@ def yomomma():
         "Yo momma so fat when she walked past the TV I missed three episodes",
         'Yo momma so stupid she stuck a battery up her ass and said "I GOT THE POWER"',
         'Yo momma so dumb, when y\'all were driving to Disneyland, she saw a sign that said "Disneyland left", '
-        'so she went home',
+        "so she went home",
         "Yo momma so fat she needs cheat codes for Wii Fit",
         'Yo momma so fat when she went to KFC and they asker her what size of bucket, she said "The one on the roof"',
         "Yo momma so fat, I took a picture of her last Christmas and it's still printing",

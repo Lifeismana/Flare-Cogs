@@ -1,16 +1,14 @@
 # -*- coding: utf-8 -*-
 
-import typing
-
 import os
+import typing
 
 import aiohttp
 import discord
 from redbot.core import commands
 
+from . import gif, images, movie, text as textmeme
 from .converters import ImageFinder
-from . import images, gif, movie
-from . import text as textmeme
 
 
 class DankMemer(commands.Cog):
@@ -117,7 +115,10 @@ class DankMemer(commands.Cog):
         user2 = user2 or ctx.author
         user, user2 = user2, user
         # could it be done better ?
-        avatars = [await user.avatar_url_as(static_format="png").read(), await user2.avatar_url_as(static_format='png').read()]
+        avatars = [
+            await user.avatar_url_as(static_format="png").read(),
+            await user2.avatar_url_as(static_format="png").read(),
+        ]
         data = images.bed(self, avatars)
         data.name = "bed.png"
         await self.send_img(ctx, discord.File(data))
@@ -162,18 +163,23 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def byemom(
-            self,
-            ctx,
-            user: typing.Optional[discord.Member] = None,
-            *,
-            text: commands.clean_content(fix_channel_mentions=True),
+        self,
+        ctx,
+        user: typing.Optional[discord.Member] = None,
+        *,
+        text: commands.clean_content(fix_channel_mentions=True),
     ):
         """Bye mom.
 
         User is a discord user ID, name or mention.
         """
         user = user or ctx.author
-        data = images.byemom(self=self, avatar=user.avatar_url_as(static_format='png'), username=user.name, text=text)
+        data = images.byemom(
+            self=self,
+            avatar=user.avatar_url_as(static_format="png"),
+            username=user.name,
+            text=text,
+        )
         data.name = "byemom.png"
         await self.send_img(ctx, discord.File(data))
 
@@ -326,7 +332,7 @@ class DankMemer(commands.Cog):
 
     @commands.command(aliases=["em"])
     async def emergencymeeting(
-            self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
+        self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
     ):
         """Call an emergency meeting."""
         data = images.emergencymeeting(self, text)
@@ -402,18 +408,18 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def floor(
-            self,
-            ctx,
-            user: typing.Optional[discord.Member] = None,
-            *,
-            text: commands.clean_content(fix_channel_mentions=True),
+        self,
+        ctx,
+        user: typing.Optional[discord.Member] = None,
+        *,
+        text: commands.clean_content(fix_channel_mentions=True),
     ):
         """The floor is ....
 
         User is a discord user ID, name or mention.
         """
         user = user or ctx.author
-        data = images.floor(self=self, avatar=user.avatar_url_as(static_format='png'), text=text)
+        data = images.floor(self=self, avatar=user.avatar_url_as(static_format="png"), text=text)
         data.name = "floor.png"
         await self.send_img(ctx, discord.File(data))
 
@@ -429,17 +435,17 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def garfield(
-            self,
-            ctx,
-            user: typing.Optional[discord.Member] = None,
-            *,
-            text: commands.clean_content(fix_channel_mentions=True),
+        self,
+        ctx,
+        user: typing.Optional[discord.Member] = None,
+        *,
+        text: commands.clean_content(fix_channel_mentions=True),
     ):
         """I wonder who that's for - Garfield meme.
 
         User is a discord user ID, name or mention."""
         user = user or ctx.author
-        data = images.garfield(self, user.avatar_url_as(static_format='png'), text)
+        data = images.garfield(self, user.avatar_url_as(static_format="png"), text)
         data.name = "garfield.png"
         await self.send_img(ctx, discord.File(data))
 
@@ -520,7 +526,7 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def justpretending(
-            self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
+        self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
     ):
         """Playing dead.
 
@@ -532,7 +538,7 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def keepyourdistance(
-            self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
+        self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
     ):
         """Keep your distance."""
         data = images.keepurdistance(self, text)
@@ -550,7 +556,7 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def knowyourlocation(
-            self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
+        self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
     ):
         """Google wants to know your location.
 
@@ -606,7 +612,7 @@ class DankMemer(commands.Cog):
     async def madethis(self, ctx, user: discord.Member, user2: discord.Member = None):
         """I made this!"""
         user2 = user2 or ctx.author
-        users = [user2.avatar_url_as(static_format='png'), user.avatar_url_as(static_format='png')]
+        users = [user2.avatar_url_as(static_format="png"), user.avatar_url_as(static_format="png")]
         data = images.madethis(self, users)
         data.name = "madethis.png"
         await self.send_img(ctx, discord.File(data))
@@ -634,13 +640,13 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def meme(
-            self,
-            ctx,
-            image: typing.Optional[ImageFinder],
-            top_text: commands.clean_content(fix_channel_mentions=True),
-            bottom_text: commands.clean_content(fix_channel_mentions=True),
-            color: typing.Optional[str],
-            font: typing.Optional[str] = None,
+        self,
+        ctx,
+        image: typing.Optional[ImageFinder],
+        top_text: commands.clean_content(fix_channel_mentions=True),
+        bottom_text: commands.clean_content(fix_channel_mentions=True),
+        color: typing.Optional[str],
+        font: typing.Optional[str] = None,
     ):
         """Make your own meme.
 
@@ -690,7 +696,9 @@ class DankMemer(commands.Cog):
         user: discord User, takes their avatar and display name.
         """
         user = user or ctx.author
-        data = images.obama(self, await user.avatar_url_as(static_format='png').read(), user.display_name)
+        data = images.obama(
+            self, await user.avatar_url_as(static_format="png").read(), user.display_name
+        )
         data.name = "obama.png"
         await self.send_img(ctx, discord.File(data))
 
@@ -727,15 +735,17 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def quote(
-            self,
-            ctx,
-            user: typing.Optional[discord.Member] = None,
-            *,
-            text: commands.clean_content(fix_channel_mentions=True),
+        self,
+        ctx,
+        user: typing.Optional[discord.Member] = None,
+        *,
+        text: commands.clean_content(fix_channel_mentions=True),
     ):
         """Quote a discord user."""
         user = user or ctx.author
-        data = images.quote(self, await user.avatar_url_as(static_format='png').read(), user.name, text)
+        data = images.quote(
+            self, await user.avatar_url_as(static_format="png").read(), user.name, text
+        )
         data.name = "quote.png"
         await self.send_img(ctx, discord.File(data))
 
@@ -798,7 +808,10 @@ class DankMemer(commands.Cog):
         **Screams**
         """
         user2 = user2 or ctx.author
-        avatars = [await user2.avatar_url_as(static_format="png").read(), await user.avatar_url_as(static_format="png").read()]
+        avatars = [
+            await user2.avatar_url_as(static_format="png").read(),
+            await user.avatar_url_as(static_format="png").read(),
+        ]
         data = images.screams(self, avatars)
         data.name = "screams.png"
         await self.send_img(ctx, discord.File(data))
@@ -823,7 +836,10 @@ class DankMemer(commands.Cog):
     async def slap(self, ctx, user: discord.Member, user2: discord.Member = None):
         """*SLAPS*"""
         user2 = user2 or ctx.author
-        avatars = [await user2.avatar_url_as(static_format="png").read(), await user.avatar_url_as(static_format="png").read()]
+        avatars = [
+            await user2.avatar_url_as(static_format="png").read(),
+            await user.avatar_url_as(static_format="png").read(),
+        ]
         data = images.slap(self, avatars)
         data.name = "slap.png"
         await self.send_img(ctx, discord.File(data))
@@ -849,7 +865,10 @@ class DankMemer(commands.Cog):
     async def spank(self, ctx, user: discord.Member, user2: discord.Member = None):
         """*spanks*"""
         user2 = user2 or ctx.author
-        avatars = [await user2.avatar_url_as(static_format="png").read(), await user.avatar_url_as(static_format="png").read()]
+        avatars = [
+            await user2.avatar_url_as(static_format="png").read(),
+            await user.avatar_url_as(static_format="png").read(),
+        ]
         data = images.spank(self, avatars)
         data.name = "spank.png"
         await self.send_img(ctx, discord.File(data))
@@ -873,11 +892,11 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def sword(
-            self,
-            ctx,
-            user: typing.Optional[discord.Member] = None,
-            *,
-            text: commands.clean_content(fix_channel_mentions=True),
+        self,
+        ctx,
+        user: typing.Optional[discord.Member] = None,
+        *,
+        text: commands.clean_content(fix_channel_mentions=True),
     ):
         """Swordknife.
 
@@ -926,11 +945,11 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def tweet(
-            self,
-            ctx,
-            user: typing.Optional[discord.Member],
-            *,
-            text: commands.clean_content(fix_channel_mentions=True),
+        self,
+        ctx,
+        user: typing.Optional[discord.Member],
+        *,
+        text: commands.clean_content(fix_channel_mentions=True),
     ):
         """Create a fake tweet.
 
@@ -938,7 +957,9 @@ class DankMemer(commands.Cog):
         text: commands.clean_content(fix_channel_mentions=True)ing. Text to show on the generated image.
         """
         user = user or ctx.author
-        data = images.tweet(self, user.avatar_url_as(static_format='png'), user.display_name, user.name, text)
+        data = images.tweet(
+            self, user.avatar_url_as(static_format="png"), user.display_name, user.name, text
+        )
         data.name = "tweet.png"
         await self.send_img(ctx, discord.File(data))
 
@@ -953,15 +974,15 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def unpopular(
-            self,
-            ctx,
-            user: typing.Optional[discord.Member] = None,
-            *,
-            text: commands.clean_content(fix_channel_mentions=True),
+        self,
+        ctx,
+        user: typing.Optional[discord.Member] = None,
+        *,
+        text: commands.clean_content(fix_channel_mentions=True),
     ):
         """Get rid of that pesky teacher."""
         user = user or ctx.author
-        data = images.unpopular(self, user.avatar_url_as(static_format='png'), text)
+        data = images.unpopular(self, user.avatar_url_as(static_format="png"), text)
         data.name = "unpopular.png"
         await self.send_img(ctx, discord.File(data))
 
@@ -1025,14 +1046,14 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def whothisis(
-            self,
-            ctx,
-            user: typing.Optional[discord.Member],
-            username: commands.clean_content(fix_channel_mentions=True),
+        self,
+        ctx,
+        user: typing.Optional[discord.Member],
+        username: commands.clean_content(fix_channel_mentions=True),
     ):
         """who this is."""
         user = user or ctx.author
-        data = images.whothisis(self, user.avatar_url_as(static_format='png'), username)
+        data = images.whothisis(self, user.avatar_url_as(static_format="png"), username)
         data.name = "whothisis.png"
         await self.send_img(ctx, discord.File(data))
 
@@ -1043,15 +1064,17 @@ class DankMemer(commands.Cog):
 
     @commands.command()
     async def youtube(
-            self,
-            ctx,
-            user: typing.Optional[discord.Member] = None,
-            *,
-            text: commands.clean_content(fix_channel_mentions=True),
+        self,
+        ctx,
+        user: typing.Optional[discord.Member] = None,
+        *,
+        text: commands.clean_content(fix_channel_mentions=True),
     ):
         """Create a youtube comment."""
         user = user or ctx.author
-        data = images.youtube(self, user.avatar_url_as(static_format='png').read(), user.name, text)
+        data = images.youtube(
+            self, user.avatar_url_as(static_format="png").read(), user.name, text
+        )
         data.name = "youtube.png"
         await self.send_img(ctx, discord.File(data))
 
@@ -1071,4 +1094,4 @@ class DankMemer(commands.Cog):
 def chunks(l, n):
     """Yield successive n-sized chunks from l."""
     for i in range(0, len(l), n):
-        yield l[i: i + n]
+        yield l[i : i + n]

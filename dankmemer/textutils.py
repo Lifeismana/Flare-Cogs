@@ -73,22 +73,14 @@ def render_text_with_emoji(
             if char == "\n":
                 coords = (initial_coords[0], coords[1] + emoji_size)
             emoji = str(hex(ord(char))).upper().replace("0X", "u")
-            if (
-                i + 1 <= len(text)
-                and emoji + ".png" not in emojis
-                and emoji + ".0.png" in emojis
-            ):
+            if i + 1 <= len(text) and emoji + ".png" not in emojis and emoji + ".0.png" in emojis:
                 emoji = emoji + ".0"
             try:
                 u_vs = str(hex(ord(text[i + 1]))).upper().replace("0X", "u")
                 try:
                     u_zws = str(hex(ord(text[i + 2]))).upper().replace("0X", "u")
                     if u_vs == "uFE0F" and u_zws == "u200D":
-                        emoji = (
-                            emoji
-                            + "_"
-                            + str(hex(ord(text[i + 3]))).upper().replace("0X", "u")
-                        )
+                        emoji = emoji + "_" + str(hex(ord(text[i + 3]))).upper().replace("0X", "u")
                         try:
                             text = text.replace(text[i + 3], "‍", 1)
                         except IndexError:
@@ -138,11 +130,7 @@ def render_text_with_emoji(
             if char == "\n":
                 coords = (initial_coords[0], coords[1] + emoji_size)
             emoji = str(hex(ord(char))).replace("0x", "")
-            if (
-                i + 1 <= len(text)
-                and emoji + ".png" not in emojis
-                and emoji + ".0.png" in emojis
-            ):
+            if i + 1 <= len(text) and emoji + ".png" not in emojis and emoji + ".0.png" in emojis:
                 emoji = emoji + ".0"
             try:
                 u_vs = str(hex(ord(text[i + 1]))).replace("0x", "")

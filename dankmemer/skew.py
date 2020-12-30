@@ -22,6 +22,4 @@ def skew(img, target_cords: list, source_coords: list = None, resolution: int = 
             [(0, 0), (img.width, 0), (img.width, img.height), (0, img.height)],
             target_cords,
         )
-    return img.transform(
-        (resolution, resolution), Image.PERSPECTIVE, coeffs, Image.BICUBIC
-    )
+    return img.transform((resolution, resolution), Image.PERSPECTIVE, coeffs, Image.BICUBIC)
