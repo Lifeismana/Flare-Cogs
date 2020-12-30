@@ -98,7 +98,7 @@ def dank(self, avatar):
     avatar = Image.open(avatar).resize((320, 320)).convert("RGBA")
 
     horn = (
-        Image.open("/images/dank_horn.bmp")
+        Image.open(f"{bundled_data_path(self)}/images/dank_horn.bmp")
         .convert("RGBA")
         .resize((100, 100))
         .rotate(315, resample=Image.BICUBIC)
