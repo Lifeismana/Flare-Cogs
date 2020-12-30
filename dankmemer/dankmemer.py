@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 
 import typing
-import urllib
 
 import os
+
 import aiohttp
 import discord
 from redbot.core import commands
-from redbot.core.utils.predicates import MessagePredicate
 
 from .converters import ImageFinder
 from . import images, gif, movie
@@ -52,14 +51,9 @@ class DankMemer(commands.Cog):
         except aiohttp.ClientOSError:
             await ctx.send("An error occured sending the picture.")
 
-    def parse_text(self, text):
-        return urllib.parse.quote(text)
-
-
     @commands.command()
     async def abandon(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Abandoning your son?"""
-        text = self.parse_text(text)
         data = images.abandon(self, text)
         data.name = "abandon.png"
         await self.send_img(ctx, discord.File(data))
@@ -103,7 +97,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def armor(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Nothing gets through this armour."""
-        text = self.parse_text(text)
         data = images.armor(self, text)
         data.name = "armor.png"
         await self.send_img(ctx, discord.File(data))
@@ -114,7 +107,6 @@ class DankMemer(commands.Cog):
 
         Texts must be comma seperated.
         """
-        text = self.parse_text(text)
         data = images.ballon(self, text)
         data.name = "balloon.png"
         await self.send_img(ctx, discord.File(data))
@@ -145,7 +137,6 @@ class DankMemer(commands.Cog):
 
         Texts must be comma seperated.
         """
-        text = self.parse_text(text)
         data = images.boo(self, text)
         data.name = "boo.png"
         await self.send_img(ctx, discord.File(data))
@@ -156,7 +147,6 @@ class DankMemer(commands.Cog):
 
         Texts must be 4 comma seperated items.
         """
-        text = self.parse_text(text)
         data = images.brain(self, text)
         data.name = "brain.png"
         await self.send_img(ctx, discord.File(data))
@@ -199,7 +189,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def changemymind(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Change my mind?"""
-        text = self.parse_text(text)
         data = images.changemymind(self, text)
         data.name = "changemymind.png"
         await self.send_img(ctx, discord.File(data))
@@ -210,7 +199,6 @@ class DankMemer(commands.Cog):
 
         Text must be comma seperated.
         """
-        text = self.parse_text(text)
         data = images.cheating(self, text)
         data.name = "cheating.png"
         await self.send_img(ctx, discord.File(data))
@@ -221,7 +209,6 @@ class DankMemer(commands.Cog):
 
         Text must be 3 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.citation(self, text)
         data.name = "citation.png"
         await self.send_img(ctx, discord.File(data))
@@ -241,7 +228,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.confusedcat(self, text)
         data.name = "confusedcat.png"
         await self.send_img(ctx, discord.File(data))
@@ -261,7 +247,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.cry(self, text)
         data.name = "cry.png"
         await self.send_img(ctx, discord.File(data))
@@ -317,7 +302,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.doglemon(self, text)
         data.name = "doglemon.png"
         await self.send_img(ctx, discord.File(data))
@@ -345,7 +329,6 @@ class DankMemer(commands.Cog):
             self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
     ):
         """Call an emergency meeting."""
-        text = self.parse_text(text)
         data = images.emergencymeeting(self, text)
         data.name = "emergencymeeting.png"
         await self.send_img(ctx, discord.File(data))
@@ -356,7 +339,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.excuseme(self, text)
         data.name = "excuseme.png"
         await self.send_img(ctx, discord.File(data))
@@ -367,7 +349,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.expanddong(self, text)
         data.name = "expanddong.png"
         await self.send_img(ctx, discord.File(data))
@@ -378,7 +359,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.facts(self, text)
         data.name = "facts.png"
         await self.send_img(ctx, discord.File(data))
@@ -407,7 +387,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 sentences comma seperated.
         """
-        text = self.parse_text(text)
         data = images.farmer(self, text)
         data.name = "farmer.png"
         await self.send_img(ctx, discord.File(data))
@@ -433,7 +412,6 @@ class DankMemer(commands.Cog):
 
         User is a discord user ID, name or mention.
         """
-        text = self.parse_text(text)
         user = user or ctx.author
         data = images.floor(self=self, avatar=user.avatar_url_as(static_format='png'), text=text)
         data.name = "floor.png"
@@ -445,7 +423,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.fuck(self, text)
         data.name = "fuck.png"
         await self.send_img(ctx, discord.File(data))
@@ -462,7 +439,6 @@ class DankMemer(commands.Cog):
 
         User is a discord user ID, name or mention."""
         user = user or ctx.author
-        text = self.parse_text(text)
         data = images.garfield(self, user.avatar_url_as(static_format='png'), text)
         data.name = "garfield.png"
         await self.send_img(ctx, discord.File(data))
@@ -479,7 +455,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def godwhy(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """God why."""
-        text = self.parse_text(text)
         data = images.godwhy(self, text)
         data.name = "godwhy.png"
         await self.send_img(ctx, discord.File(data))
@@ -505,7 +480,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def humansgood(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Humans are wonderful things."""
-        text = self.parse_text(text)
         data = images.humansgood(self, text)
         data.name = "humansgood.png"
         await self.send_img(ctx, discord.File(data))
@@ -513,7 +487,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def inator(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Xinator."""
-        text = self.parse_text(text)
         data = images.inator(self, text)
         data.name = "inator.png"
         await self.send_img(ctx, discord.File(data))
@@ -553,7 +526,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.justpretending(self, text)
         data.name = "justpretending.png"
         await self.send_img(ctx, discord.File(data))
@@ -563,7 +535,6 @@ class DankMemer(commands.Cog):
             self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
     ):
         """Keep your distance."""
-        text = self.parse_text(text)
         data = images.keepurdistance(self, text)
         data.name = "keepurdistance.png"
         await self.send_img(ctx, discord.File(data))
@@ -585,7 +556,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.knowyourlocation(self, text)
         data.name = "knowyourlocation.png"
         await self.send_img(ctx, discord.File(data))
@@ -596,7 +566,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = movie.kowalski(self, text)
         oldname = data.name
         data.name = "kowalski.gif"
@@ -619,7 +588,6 @@ class DankMemer(commands.Cog):
     @commands.command()  # TODO: MP4s
     async def letmein(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """LET ME IN."""
-        text = self.parse_text(text)
         data = movie.letmein(self, text)
         data.name = "letmein.mp4"
         await self.send_img(ctx, discord.File(data))
@@ -630,7 +598,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.lick(self, text)
         data.name = "lick.png"
         await self.send_img(ctx, discord.File(data))
@@ -661,7 +628,6 @@ class DankMemer(commands.Cog):
 
         Text must be 3 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.master(self, text)
         data.name = "master.png"
         await self.send_img(ctx, discord.File(data))
@@ -685,16 +651,15 @@ class DankMemer(commands.Cog):
         verdana. Colors can be defined with HEX codes or web colors, e.g. black, white, orange etc.
         Try your luck ;) The default is Impact in white.
         """
-        top_text = urllib.parse.quote(top_text)
-        bottom_text = urllib.parse.quote(bottom_text)
         if image is None:
             image = await ctx.author.avatar_url_as(static_format="png").read()
+        # hmmm i should rewrite that
         if font:
-            fnt = f"&font={font}"
+            fnt = font
         else:
             fnt = ""
         if color:
-            clr = f"&color={urllib.parse.quote(color)}"
+            clr = color
         else:
             clr = ""
         data = images.meme(self, image, top_text, bottom_text, clr, fnt)
@@ -704,7 +669,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def note(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Pass a note back."""
-        text = self.parse_text(text)
         data = images.note(self, text)
         data.name = "note.png"
         await self.send_img(ctx, discord.File(data))
@@ -715,7 +679,6 @@ class DankMemer(commands.Cog):
 
         nothing.
         """
-        text = self.parse_text(text)
         data = images.nothing(self, text)
         data.name = "nothing.png"
         await self.send_img(ctx, discord.File(data))
@@ -734,7 +697,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def ohno(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Oh no, it's stupid!"""
-        text = self.parse_text(text)
         data = images.ohno(self, text)
         data.name = "ohno.png"
         await self.send_img(ctx, discord.File(data))
@@ -742,7 +704,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def piccolo(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Piccolo."""
-        text = self.parse_text(text)
         data = images.piccolo(self, text)
         data.name = "piccolo.png"
         await self.send_img(ctx, discord.File(data))
@@ -753,7 +714,6 @@ class DankMemer(commands.Cog):
 
         Text must be 3 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.plan(self, text)
         data.name = "plan.png"
         await self.send_img(ctx, discord.File(data))
@@ -761,7 +721,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def presentation(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Lisa makes a presentation."""
-        text = self.parse_text(text)
         data = images.presentation(self, text)
         data.name = "presentation.png"
         await self.send_img(ctx, discord.File(data))
@@ -776,7 +735,6 @@ class DankMemer(commands.Cog):
     ):
         """Quote a discord user."""
         user = user or ctx.author
-        text = self.parse_text(text)
         data = images.quote(self, await user.avatar_url_as(static_format='png').read(), user.name, text)
         data.name = "quote.png"
         await self.send_img(ctx, discord.File(data))
@@ -829,7 +787,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def savehumanity(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """The secret to saving humanity."""
-        text = self.parse_text(text)
         data = images.savehumanity(self, text)
         data.name = "savehumanity.png"
         await self.send_img(ctx, discord.File(data))
@@ -849,7 +806,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def shit(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """I stepped in crap."""
-        text = self.parse_text(text)
         data = images.shit(self, text)
         data.name = "shit.png"
         await self.send_img(ctx, discord.File(data))
@@ -875,7 +831,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def slapsroof(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """This bad boy can fit so much in it."""
-        text = self.parse_text(text)
         data = images.slapsroof(self, text)
         data.name = "slapsroof.png"
         await self.send_img(ctx, discord.File(data))
@@ -886,7 +841,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.sneakyfox(self, text)
         data.name = "sneakyfox.png"
         await self.send_img(ctx, discord.File(data))
@@ -903,7 +857,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def stroke(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """How to recognize a stroke?"""
-        text = self.parse_text(text)
         data = images.stroke(self, text)
         data.name = "stroke.png"
         await self.send_img(ctx, discord.File(data))
@@ -914,7 +867,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.surprised(self, text)
         data.name = "surprised.png"
         await self.send_img(ctx, discord.File(data))
@@ -931,7 +883,6 @@ class DankMemer(commands.Cog):
 
         Text must be split on commas.
         """
-        text = self.parse_text(text)
         user = user or ctx.author
 
         data = images.sword(self, user.name, text)
@@ -944,7 +895,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 sentences comma seperated.
         """
-        text = self.parse_text(text)
         data = images.theoffice(self, text)
         data.name = "theoffice.png"
         await self.send_img(ctx, discord.File(data))
@@ -952,7 +902,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def thesearch(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """The search for intelligent life continues.."""
-        text = self.parse_text(text)
         data = images.thesearch(self, text)
         data.name = "thesearch.png"
         await self.send_img(ctx, discord.File(data))
@@ -988,7 +937,6 @@ class DankMemer(commands.Cog):
         user: discord User, takes their avatar, display name and name.
         text: commands.clean_content(fix_channel_mentions=True)ing. Text to show on the generated image.
         """
-        text = self.parse_text(text)
         user = user or ctx.author
         data = images.tweet(self, user.avatar_url_as(static_format='png'), user.display_name, user.name, text)
         data.name = "tweet.png"
@@ -1013,7 +961,6 @@ class DankMemer(commands.Cog):
     ):
         """Get rid of that pesky teacher."""
         user = user or ctx.author
-        text = self.parse_text(text)
         data = images.unpopular(self, user.avatar_url_as(static_format='png'), text)
         data.name = "unpopular.png"
         await self.send_img(ctx, discord.File(data))
@@ -1021,7 +968,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def violence(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Violence is never the answer."""
-        text = self.parse_text(text)
         data = images.violence(self, text)
         data.name = "violence.png"
         await self.send_img(ctx, discord.File(data))
@@ -1032,7 +978,6 @@ class DankMemer(commands.Cog):
 
         Text must be 2 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.violentsparks(self, text)
         data.name = "violentsparks.png"
         await self.send_img(ctx, discord.File(data))
@@ -1040,7 +985,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def vr(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Woah, VR is so realistic."""
-        text = self.parse_text(text)
         data = images.vr(self, text)
         data.name = "vr.png"
         await self.send_img(ctx, discord.File(data))
@@ -1048,7 +992,6 @@ class DankMemer(commands.Cog):
     @commands.command()
     async def walking(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Walking Meme."""
-        text = self.parse_text(text)
         data = images.walking(self, text)
         data.name = "walking.png"
         await self.send_img(ctx, discord.File(data))
@@ -1108,7 +1051,6 @@ class DankMemer(commands.Cog):
     ):
         """Create a youtube comment."""
         user = user or ctx.author
-        text = self.parse_text(text)
         data = images.youtube(self, user.avatar_url_as(static_format='png').read(), user.name, text)
         data.name = "youtube.png"
         await self.send_img(ctx, discord.File(data))
@@ -1121,7 +1063,6 @@ class DankMemer(commands.Cog):
 
         Text must be 5 comma seperated values.
         """
-        text = self.parse_text(text)
         data = images.expandingwwe(self, text)
         data.name = "expandingwwe.png"
         await self.send_img(ctx, discord.File(data))
