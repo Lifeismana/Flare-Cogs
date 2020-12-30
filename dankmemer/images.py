@@ -28,7 +28,7 @@ def abandon(self, text):
 
 def aborted(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/aborted.bmp")
-    img1 = Image.open(BytesIO(avatar)).convert("RGBA").resize((90, 90))
+    img1 = Image.open(avatar).convert("RGBA").resize((90, 90))
     base.paste(img1, (390, 130), img1)
     base = base.convert("RGB")
 
@@ -39,7 +39,7 @@ def aborted(self, avatar):
 
 
 def affect(self, avatar):
-    avatar = Image.open(BytesIO(avatar)).resize((200, 157)).convert("RGBA")
+    avatar = Image.open(avatar).resize((200, 157)).convert("RGBA")
     base = Image.open(f"{bundled_data_path(self)}/images/affect.bmp").convert("RGBA")
 
     base.paste(avatar, (180, 383, 380, 540), avatar)
@@ -105,8 +105,8 @@ def ballon(self, text):
 
 def bed(self, avatars):
     base = Image.open(f"{bundled_data_path(self)}/images/bed.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatars[0])).resize((100, 100)).convert("RGBA")
-    avatar2 = Image.open(BytesIO(avatars[1])).resize((70, 70)).convert("RGBA")
+    avatar = Image.open(avatars[0]).resize((100, 100)).convert("RGBA")
+    avatar2 = Image.open(avatars[1]).resize((70, 70)).convert("RGBA")
     avatar_small = avatar.copy().resize((70, 70))
     base.paste(avatar, (25, 100), avatar)
     base.paste(avatar, (25, 300), avatar)
@@ -122,7 +122,7 @@ def bed(self, avatars):
 
 def bongocat(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/bongocat.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((750, 750)).convert("RGBA")
+    avatar = Image.open(avatar).resize((750, 750)).convert("RGBA")
 
     avatar.paste(base, (0, 0), base)
     avatar = avatar.convert("RGBA")
@@ -192,7 +192,7 @@ def brain(self, text):
 
 
 def brazzers(self, avatar):
-    avatar = Image.open(BytesIO(avatar)).convert("RGBA")
+    avatar = Image.open(avatar).convert("RGBA")
     base = Image.open(f"{bundled_data_path(self)}/images/brazzers.bmp")
     aspect = avatar.width / avatar.height
 
@@ -215,7 +215,7 @@ def brazzers(self, avatar):
 
 def byemom(self, avatar, text, username):
     base = Image.open(f"{bundled_data_path(self)}/images/mom.bmp")
-    avatar = Image.open(BytesIO(avatar)).convert("RGBA").resize((70, 70), resample=Image.BICUBIC)
+    avatar = Image.open(avatar).convert("RGBA").resize((70, 70), resample=Image.BICUBIC)
     avatar2 = avatar.copy().resize((125, 125), resample=Image.BICUBIC)
     text_layer = Image.new("RGBA", (350, 25))
     bye_layer = Image.new("RGBA", (180, 51), (255, 255, 255))
@@ -247,7 +247,7 @@ def byemom(self, avatar, text, username):
 
 def cancer(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/cancer.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((100, 100)).convert("RGBA")
+    avatar = Image.open(avatar).resize((100, 100)).convert("RGBA")
 
     base.paste(avatar, (351, 200), avatar)
     base = base.convert("RGBA")
@@ -348,11 +348,11 @@ def confusedcat(self, text):
 
 
 # SOMETHING IS WRONG HERE
-def corporate(self, avatar):
+def corporate(self, avatars):
     base = Image.open(f"{bundled_data_path(self)}/images/corporate.jpg")
-    img1 = Image.open(BytesIO(avatar)).convert("RGBA").resize((512, 512), Image.LANCZOS)
+    img1 = Image.open(avatars[0]).convert("RGBA").resize((512, 512), Image.LANCZOS)
     try:
-        img2 = avatar[1].convert("RGBA").resize((512, 512), Image.LANCZOS)
+        img2 = Image.open(avatars[1]).convert("RGBA").resize((512, 512), Image.LANCZOS)
     except IndexError:
         img2 = img1
 
@@ -387,7 +387,7 @@ def cry(self, text):
 
 def dab(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/dab.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((500, 500)).convert("RGBA")
+    avatar = Image.open(avatar).resize((500, 500)).convert("RGBA")
     final_image = Image.new("RGBA", base.size)
 
     # Put the base over the avatar
@@ -401,7 +401,7 @@ def dab(self, avatar):
 
 
 def deepfry(self, avatar):
-    avatar = Image.open(BytesIO(avatar)).resize((400, 400)).convert("RGBA")
+    avatar = Image.open(avatar).resize((400, 400)).convert("RGBA")
 
     # noinspection PyPep8
     joy, hand, hundred, fire = [
@@ -431,7 +431,7 @@ def deepfry(self, avatar):
 
 def delete(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/delete.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((195, 195)).convert("RGBA")
+    avatar = Image.open(avatar).resize((195, 195)).convert("RGBA")
 
     base.paste(avatar, (120, 135), avatar)
     base = base.convert("RGBA")
@@ -443,7 +443,7 @@ def delete(self, avatar):
 
 
 def disability(self, avatar):
-    avatar = Image.open(BytesIO(avatar)).resize((175, 175)).convert("RGBA")
+    avatar = Image.open(avatar).resize((175, 175)).convert("RGBA")
     base = Image.open(f"{bundled_data_path(self)}/images/disability.bmp").convert("RGBA")
 
     base.paste(avatar, (450, 325), avatar)
@@ -478,7 +478,7 @@ def doglemon(self, text):
 
 def door(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/door.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((479, 479)).convert("RGBA")
+    avatar = Image.open(avatar).resize((479, 479)).convert("RGBA")
     final_image = Image.new("RGBA", base.size)
 
     # Put the base over the avatar
@@ -496,7 +496,7 @@ def egg(self, avatar):
     base = (
         Image.open(f"{bundled_data_path(self)}/images/egg.bmp").resize((350, 350)).convert("RGBA")
     )
-    avatar = Image.open(BytesIO(avatar)).resize((50, 50)).convert("RGBA")
+    avatar = Image.open(avatar).resize((50, 50)).convert("RGBA")
 
     base.paste(avatar, (143, 188), avatar)
     base = base.convert("RGBA")
@@ -624,7 +624,7 @@ def facts(self, text):
 
 def failure(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/failure.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((215, 215)).convert("RGBA")
+    avatar = Image.open(avatar).resize((215, 215)).convert("RGBA")
 
     base.paste(avatar, (143, 525), avatar)
     base = base.convert("RGBA")
@@ -637,7 +637,7 @@ def failure(self, avatar):
 
 def fakenews(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/fakenews.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((400, 400)).convert("RGBA")
+    avatar = Image.open(avatar).resize((400, 400)).convert("RGBA")
     final_image = Image.new("RGBA", base.size)
 
     # Put the base over the avatar
@@ -675,7 +675,7 @@ def farmer(self, text):
 
 def fedora(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/fedora.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((275, 275)).convert("RGBA")
+    avatar = Image.open(avatar).resize((275, 275)).convert("RGBA")
     final_image = Image.new("RGBA", base.size)
 
     # Put the base over the avatar
@@ -690,7 +690,7 @@ def fedora(self, avatar):
 
 def floor(self, avatar, text):
     base = Image.open(f"{bundled_data_path(self)}/images/floor.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((45, 45)).convert("RGBA")
+    avatar = Image.open(avatar).resize((45, 45)).convert("RGBA")
     avatar2 = avatar.copy().resize((23, 23))
     font = ImageFont.truetype(f"{bundled_data_path(self)}/fonts/sans.ttf", size=22)
     canv = ImageDraw.Draw(base)
@@ -734,7 +734,7 @@ def garfield(self, avatar, text):
         .resize((224, 224), Image.LANCZOS)
     )
     font = ImageFont.truetype(f"{bundled_data_path(self)}/fonts/arial.ttf", size=28)
-    avatar = Image.open(BytesIO(avatar)).resize((192, 192), Image.LANCZOS).convert("RGBA")
+    avatar = Image.open(avatar).resize((192, 192), Image.LANCZOS).convert("RGBA")
     avatar2 = avatar.copy().resize((212, 212), Image.LANCZOS).convert("RGBA")
 
     base.paste(avatar, (296, 219), avatar)
@@ -751,7 +751,7 @@ def garfield(self, avatar, text):
 
 
 def gay(self, avatar):
-    img1 = Image.open(BytesIO(avatar)).convert("RGBA")
+    img1 = Image.open(avatar).convert("RGBA")
     img2 = Image.open(f"{bundled_data_path(self)}/gay/gay.bmp").convert("RGBA").resize(img1.size)
     img2.putalpha(128)
     img1.paste(img2, (0, 0), img2)
@@ -783,7 +783,7 @@ def godwhy(self, text):
 
 
 def goggles(self, avatar):
-    img1 = Image.open(BytesIO(avatar)).convert("RGBA")
+    img1 = Image.open(avatar).convert("RGBA")
     base = Image.open(f"{bundled_data_path(self)}/images/goggles.jpg").convert("RGBA")
     img1 = skew.skew(img1, [(32, 297), (171, 295), (180, 456), (41, 463)])
     base.paste(img1, (0, 0), img1)
@@ -797,7 +797,7 @@ def goggles(self, avatar):
 
 def hitler(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/hitler.bmp")
-    img1 = Image.open(BytesIO(avatar)).convert("RGBA").resize((140, 140))
+    img1 = Image.open(avatar).convert("RGBA").resize((140, 140))
     base.paste(img1, (46, 43), img1)
     base = base.convert("RGB")
 
@@ -846,7 +846,7 @@ def inator(self, text):
 
 
 def invert(avatar):
-    avatar = Image.open(BytesIO(avatar))
+    avatar = Image.open(avatar)
     if avatar.mode == "RGBA":
         r, g, b, a = avatar.split()
         rgb_image = Image.merge("RGB", (r, g, b))
@@ -867,7 +867,7 @@ def invert(avatar):
 def ipad(self, avatar):
     white = Image.new("RGBA", (2048, 1364), 0x00000000)
     base = Image.open(f"{bundled_data_path(self)}/images/ipad.png")
-    img1 = Image.open(BytesIO(avatar)).convert("RGBA").resize((512, 512), Image.LANCZOS)
+    img1 = Image.open(avatar).convert("RGBA").resize((512, 512), Image.LANCZOS)
 
     img1 = skew.skew(img1, [(476, 484), (781, 379), (956, 807), (668, 943)])
     white.paste(img1, (0, 0), img1)
@@ -882,7 +882,7 @@ def ipad(self, avatar):
 
 def jail(self, avatar):
     overlay = Image.open(f"{bundled_data_path(self)}/images/jail.bmp").resize((350, 350))
-    base = Image.open(BytesIO(avatar)).convert("LA").resize((350, 350))
+    base = Image.open(avatar).convert("LA").resize((350, 350))
     base.paste(overlay, (0, 0), overlay)
 
     base = base.convert("RGBA")
@@ -933,7 +933,7 @@ def keepurdistance(self, text):
 def kimborder(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/kimborder.png")
     white = Image.new("RGBA", (base.width, base.height), 0x00000000)
-    img1 = Image.open(BytesIO(avatar)).convert("RGBA")
+    img1 = Image.open(avatar).convert("RGBA")
     img1 = img1.resize((img1.width, img1.height), Image.LANCZOS)
 
     img1 = skew.skew(img1, [(0, 402), (476, 413), (444, 638), (0, 638)])
@@ -977,7 +977,7 @@ def knowyourlocation(self, text):
 
 def laid(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/laid.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((115, 115)).convert("RGBA")
+    avatar = Image.open(avatar).resize((115, 115)).convert("RGBA")
     final_image = Image.new("RGBA", base.size)
 
     # Put the base over the avatar
@@ -1010,8 +1010,8 @@ def lick(self, text):
 
 def madethis(self, avatars):
     base = Image.open(f"{bundled_data_path(self)}/images/madethis.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatars[0])).resize((130, 130)).convert("RGBA")
-    avatar2 = Image.open(BytesIO(avatars[1])).resize((111, 111)).convert("RGBA")
+    avatar = Image.open(avatars[0]).resize((130, 130)).convert("RGBA")
+    avatar2 = Image.open(avatars[1]).resize((111, 111)).convert("RGBA")
     base.paste(avatar, (92, 271), avatar)
     base.paste(avatar2, (422, 267), avatar2)
     base.paste(avatar2, (406, 678), avatar2)
@@ -1025,7 +1025,6 @@ def madethis(self, avatars):
 
 
 def magik(self, avatar, text):
-    avatar = BytesIO(avatar)
     try:
         img = wandimage.Image(file=avatar)
     except Exception as e:
@@ -1104,7 +1103,7 @@ def master(self, text):
 
 
 def meme(self, avatar, top_text, bottom_text, color, font, altstyle):
-    img = Image.open(BytesIO(avatar)).convert("RGBA")
+    img = Image.open(avatar).convert("RGBA")
     factor = int(img.height / 10)
     deffont = font or "impact"
     deffont = ImageFont.truetype(f"{bundled_data_path(self)}/fonts/{deffont}.ttf", size=factor)
@@ -1251,7 +1250,7 @@ def obama(self, avatar, usernames):
     font = ImageFont.truetype(f"{bundled_data_path(self)}/fonts/arimobold.ttf", size=36)
     canv = ImageDraw.Draw(base)
 
-    avatar = Image.open(BytesIO(avatar)).resize((200, 200), Image.LANCZOS).convert("RGBA")
+    avatar = Image.open(avatar).resize((200, 200), Image.LANCZOS).convert("RGBA")
 
     w, _ = canv.textsize(wrap(font, usernames[0], 400), font)
 
@@ -1348,7 +1347,7 @@ def presentation(self, text):
 
 
 def quote(self, avatar, text, usernames):
-    avatar = Image.open(BytesIO(avatar)).resize((150, 150))
+    avatar = Image.open(avatar).resize((150, 150))
     base = Image.new("RGBA", (1500, 300))
     font_med = ImageFont.truetype(f"{bundled_data_path(self)}/fonts/medium.woff", size=60)
     font_time = ImageFont.truetype(f"{bundled_data_path(self)}/fonts/medium.woff", size=40)
@@ -1400,7 +1399,7 @@ def quote(self, avatar, text, usernames):
 
 
 def radialblur(self, avatar):
-    output = gm.radial_blur(Image.open(BytesIO(avatar)), 15, "png")
+    output = gm.radial_blur(Image.open(avatar), 15, "png")
 
     b = BytesIO(output)
     b.seek(0)
@@ -1411,7 +1410,7 @@ def rip(self, avatar):
     base = (
         Image.open(f"{bundled_data_path(self)}/images/rip.bmp").convert("RGBA").resize((642, 806))
     )
-    avatar = Image.open(BytesIO(avatar)).resize((300, 300)).convert("RGBA")
+    avatar = Image.open(avatar).resize((300, 300)).convert("RGBA")
 
     base.paste(avatar, (175, 385), avatar)
     base = base.convert("RGBA")
@@ -1424,7 +1423,7 @@ def rip(self, avatar):
 
 def roblox(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/roblox.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((56, 74)).convert("RGBA")
+    avatar = Image.open(avatar).resize((56, 74)).convert("RGBA")
     base.paste(avatar, (168, 41), avatar)
 
     b = BytesIO()
@@ -1434,7 +1433,7 @@ def roblox(self, avatar):
 
 
 def salty(self, avatar):
-    avatar = Image.open(BytesIO(avatar)).convert("RGBA").resize((256, 256))
+    avatar = Image.open(avatar).convert("RGBA").resize((256, 256))
 
     salt = (
         Image.open(f"{bundled_data_path(self)}/images/salt.bmp")
@@ -1472,7 +1471,7 @@ def salty(self, avatar):
 
 def satan(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/satan.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((195, 195)).convert("RGBA")
+    avatar = Image.open(avatar).resize((195, 195)).convert("RGBA")
     final_image = Image.new("RGBA", base.size)
 
     # Put the base over the avatar
@@ -1509,8 +1508,8 @@ def savehumanity(self, text):
 
 def screams(self, avatars):
     base = Image.open(f"{bundled_data_path(self)}/images/screams.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatars[0])).resize((175, 175)).convert("RGBA")
-    avatar2 = Image.open(BytesIO(avatars[1])).resize((156, 156)).convert("RGBA")
+    avatar = Image.open(avatars[0]).resize((175, 175)).convert("RGBA")
+    avatar2 = Image.open(avatars[1]).resize((156, 156)).convert("RGBA")
     base.paste(avatar, (200, 1), avatar)
     base.paste(avatar2, (136, 231), avatar2)
     base = base.convert("RGBA")
@@ -1544,7 +1543,7 @@ def shit(self, text):
 
 def sickban(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/ban.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((400, 400)).convert("RGBA")
+    avatar = Image.open(avatar).resize((400, 400)).convert("RGBA")
     base.paste(avatar, (70, 344), avatar)
     base = base.convert("RGBA")
 
@@ -1560,8 +1559,8 @@ def slap(self, avatars):
         .resize((1000, 500))
         .convert("RGBA")
     )
-    avatar = Image.open(BytesIO(avatars[1])).resize((220, 220)).convert("RGBA")
-    avatar2 = Image.open(BytesIO(avatars[0])).resize((200, 200)).convert("RGBA")
+    avatar = Image.open(avatars[1]).resize((220, 220)).convert("RGBA")
+    avatar2 = Image.open(avatars[0]).resize((200, 200)).convert("RGBA")
     base.paste(avatar, (580, 260), avatar)
     base.paste(avatar2, (350, 70), avatar2)
     base = base.convert("RGB")
@@ -1610,8 +1609,8 @@ def sneakyfox(self, text):
 
 def spank(self, avatars):
     base = Image.open(f"{bundled_data_path(self)}/images/spank.bmp").resize((500, 500))
-    img1 = Image.open(BytesIO(avatars[0])).resize((140, 140)).convert("RGBA")
-    img2 = Image.open(BytesIO(avatars[1])).resize((120, 120)).convert("RGBA")
+    img1 = Image.open(avatars[0]).resize((140, 140)).convert("RGBA")
+    img2 = Image.open(avatars[1]).resize((120, 120)).convert("RGBA")
     base.paste(img1, (225, 5), img1)
     base.paste(img2, (350, 220), img2)
     base = base.convert("RGBA")
@@ -1723,7 +1722,7 @@ def thesearch(self, text):
 
 
 def trash(self, avatar):
-    avatar = Image.open(BytesIO(avatar)).resize((483, 483)).convert("RGBA")
+    avatar = Image.open(avatar).resize((483, 483)).convert("RGBA")
     base = Image.open(f"{bundled_data_path(self)}/images/trash.bmp").convert("RGBA")
 
     avatar = avatar.filter(ImageFilter.GaussianBlur(radius=6))
@@ -1738,7 +1737,7 @@ def trash(self, avatar):
 
 def tweet(self, avatar, username0, username1, text):
     base = Image.open(f"{bundled_data_path(self)}/images/trump.bmp")
-    avatar = Image.open(BytesIO(avatar)).resize((98, 98)).convert("RGBA")
+    avatar = Image.open(avatar).resize((98, 98)).convert("RGBA")
     font = ImageFont.truetype(
         f"{bundled_data_path(self)}/fonts/segoeuireg.ttf",
         size=50,
@@ -1799,7 +1798,7 @@ def tweet(self, avatar, username0, username1, text):
 
 def ugly(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/ugly/ugly.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((175, 175)).convert("RGBA")
+    avatar = Image.open(avatar).resize((175, 175)).convert("RGBA")
     base.paste(avatar, (120, 55), avatar)
     base = base.convert("RGBA")
 
@@ -1810,7 +1809,7 @@ def ugly(self, avatar):
 
 
 def unpopular(self, avatar, text):
-    avatar = Image.open(BytesIO(avatar)).resize((666, 666)).convert("RGBA")
+    avatar = Image.open(avatar).resize((666, 666)).convert("RGBA")
     base = Image.open(f"{bundled_data_path(self)}/images/unpopular_unpopular.bmp").convert("RGBA")
     font = ImageFont.truetype(f"{bundled_data_path(self)}/fonts/semibold.woff", size=100)
     reticle = Image.open(f"{bundled_data_path(self)}/images/unpopular_reticle.bmp").convert("RGBA")
@@ -1916,7 +1915,7 @@ def walking(self, text):
 
 def wanted(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/wanted.bmp").convert("RGBA")
-    avatar = Image.open(BytesIO(avatar)).resize((447, 447)).convert("RGBA")
+    avatar = Image.open(avatar).resize((447, 447)).convert("RGBA")
     base.paste(avatar, (145, 282), avatar)
 
     b = BytesIO()
@@ -1931,7 +1930,7 @@ def warp(self, avatar):
     swirl = "{}{}".format(choice(["+", "-"]), randint(120, 180))
     concat = ["-implode", implode, "-roll", roll, "-swirl", swirl]
 
-    output = gm.convert(Image.open(BytesIO(avatar)), concat, "png")
+    output = gm.convert(Image.open(avatar), concat, "png")
 
     b = BytesIO(output)
     b.seek(0)
@@ -1940,7 +1939,7 @@ def warp(self, avatar):
 
 def whodidthis(self, avatar):
     base = Image.open(f"{bundled_data_path(self)}/images/whodidthis.bmp")
-    avatar = Image.open(BytesIO(avatar)).resize((720, 405)).convert("RGBA")
+    avatar = Image.open(avatar).resize((720, 405)).convert("RGBA")
     base.paste(avatar, (0, 159), avatar)
     base = base.convert("RGBA")
 
@@ -1952,7 +1951,7 @@ def whodidthis(self, avatar):
 
 def whothisis(self, avatar, text):
     base = Image.open(f"{bundled_data_path(self)}/images/whothisis.bmp")
-    avatar = Image.open(BytesIO(avatar)).resize((215, 215)).convert("RGBA")
+    avatar = Image.open(avatar).resize((215, 215)).convert("RGBA")
     font = ImageFont.truetype(f"{bundled_data_path(self)}/fonts/arimobold.ttf", size=40)
     base.paste(avatar, (523, 15), avatar)
     base.paste(avatar, (509, 567), avatar)
@@ -1968,7 +1967,7 @@ def whothisis(self, avatar, text):
 
 
 def youtube(self, avatar, text, username):
-    avatar = Image.open(BytesIO(avatar)).resize((52, 52)).convert("RGBA")
+    avatar = Image.open(avatar).resize((52, 52)).convert("RGBA")
     name = username
     base = Image.open(f"{bundled_data_path(self)}/youtube/youtube.bmp").convert("RGBA")
     font = ImageFont.truetype(

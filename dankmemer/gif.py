@@ -8,7 +8,7 @@ from redbot.core.data_manager import bundled_data_path
 
 def airpods(self, avatar):
     blank = Image.new("RGBA", (400, 128), (255, 255, 255, 0))
-    avatar = Image.open(BytesIO(avatar)).convert("RGBA").resize((128, 128))
+    avatar = Image.open(avatar).convert("RGBA").resize((128, 128))
     left = Image.open(f"{bundled_data_path(self)}/images/airpods_left.gif")
     right = Image.open(f"{bundled_data_path(self)}/images/airpods_right.gif")
     out = []
@@ -40,7 +40,7 @@ def airpods(self, avatar):
 
 
 def america(self, avatar):
-    img1 = Image.open(BytesIO(avatar)).convert("RGBA").resize((480, 480))
+    img1 = Image.open(avatar).convert("RGBA").resize((480, 480))
     img2 = Image.open(f"{bundled_data_path(self)}/images/america.gif")
     img1.putalpha(128)
 
@@ -67,7 +67,7 @@ def america(self, avatar):
 
 
 def communism(self, avatar):
-    img1 = Image.open(BytesIO(avatar)).convert("RGBA").resize((300, 300))
+    img1 = Image.open(avatar).convert("RGBA").resize((300, 300))
     img2 = Image.open(f"{bundled_data_path(self)}/images/communism.gif")
     img1.putalpha(96)
 
@@ -95,7 +95,7 @@ def communism(self, avatar):
 
 
 def dank(self, avatar):
-    avatar = Image.open(BytesIO(avatar)).resize((320, 320)).convert("RGBA")
+    avatar = Image.open(avatar).resize((320, 320)).convert("RGBA")
 
     horn = (
         Image.open("/images/dank_horn.bmp")
@@ -157,7 +157,7 @@ def dank(self, avatar):
 
 
 def trigger(self, avatar):
-    avatar = Image.open(BytesIO(avatar)).resize((320, 320)).convert("RGBA")
+    avatar = Image.open(avatar).resize((320, 320)).convert("RGBA")
     triggered = Image.open(f"{bundled_data_path(self)}/images/triggered_triggered.bmp")
     tint = Image.open(f"{bundled_data_path(self)}/images/triggered_red.bmp").convert("RGBA")
     blank = Image.new("RGBA", (256, 256), color=(231, 19, 29))
