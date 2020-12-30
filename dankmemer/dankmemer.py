@@ -74,7 +74,6 @@ class DankMemer(commands.Cog):
         return urllib.parse.quote(text)
 
 
-    @commands.check(tokencheck)
     @commands.command()
     async def abandon(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Abandoning your son?"""
@@ -85,7 +84,6 @@ class DankMemer(commands.Cog):
         data.name = "abandon.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command(aliases=["aborted"])
     async def abort(self, ctx, image: ImageFinder = None):
         """All the reasons why X was aborted."""
@@ -97,7 +95,6 @@ class DankMemer(commands.Cog):
         data.name = "abort.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def affect(self, ctx, image: ImageFinder = None):
         """It won't affect my baby."""
@@ -109,7 +106,6 @@ class DankMemer(commands.Cog):
         data.name = "affect.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def airpods(self, ctx, image: ImageFinder = None):
         """Flex with airpods."""
@@ -121,7 +117,6 @@ class DankMemer(commands.Cog):
         data.name = "airpods.gif"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def america(self, ctx, image: ImageFinder = None):
         """Americafy a picture."""
@@ -133,7 +128,6 @@ class DankMemer(commands.Cog):
         data.name = "america.gif"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def armor(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Nothing gets through this armour."""
@@ -144,7 +138,6 @@ class DankMemer(commands.Cog):
         data.name = "armor.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def balloon(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Pop a balloon.
@@ -158,7 +151,6 @@ class DankMemer(commands.Cog):
         data.name = "balloon.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def bed(self, ctx, user: discord.Member, user2: discord.Member = None):
         """There's a monster under my bed."""
@@ -178,7 +170,6 @@ class DankMemer(commands.Cog):
         data.name = "bed.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def bongocat(self, ctx, image: ImageFinder = None):
         """Bongocat-ify your image."""
@@ -190,7 +181,6 @@ class DankMemer(commands.Cog):
         data.name = "bongocat.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def boo(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Scary.
@@ -204,7 +194,6 @@ class DankMemer(commands.Cog):
         data.name = "boo.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def brain(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Big brain meme.
@@ -218,7 +207,6 @@ class DankMemer(commands.Cog):
         data.name = "brain.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def brazzers(self, ctx, image: ImageFinder = None):
         """Brazzerfy your image."""
@@ -230,7 +218,6 @@ class DankMemer(commands.Cog):
         data.name = "brazzers.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def byemom(
         self,
@@ -255,7 +242,6 @@ class DankMemer(commands.Cog):
         data.name = "byemom.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()  # TODO: Maybe remove?
     async def cancer(self, ctx, image: ImageFinder = None):
         """Squidward sign."""
@@ -267,7 +253,6 @@ class DankMemer(commands.Cog):
         data.name = "cancer.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def changemymind(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Change my mind?"""
@@ -278,7 +263,6 @@ class DankMemer(commands.Cog):
         data.name = "changemymind.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def cheating(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Cheating?.
@@ -320,7 +304,6 @@ class DankMemer(commands.Cog):
         data.name = "citation.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def communism(self, ctx, image: ImageFinder = None):
         """Communism-ify your picture."""
@@ -332,7 +315,6 @@ class DankMemer(commands.Cog):
         data.name = "communism.gif"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def confusedcat(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Confused cat meme.
@@ -346,7 +328,6 @@ class DankMemer(commands.Cog):
         data.name = "confusedcat.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def corporate(self, ctx, image: ImageFinder = None):
         """Corporate meme."""
@@ -358,7 +339,6 @@ class DankMemer(commands.Cog):
         data.name = "corporate.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def cry(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Drink my tears meme.
@@ -372,7 +352,6 @@ class DankMemer(commands.Cog):
         data.name = "cry.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def dab(self, ctx, image: ImageFinder = None):
         """Hit a dab."""
@@ -384,7 +363,6 @@ class DankMemer(commands.Cog):
         data.name = "dab.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def dank(self, ctx, image: ImageFinder = None):
         """Dank, noscope 420."""
@@ -396,7 +374,6 @@ class DankMemer(commands.Cog):
         data.name = "dank.gif"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def deepfried(self, ctx, image: ImageFinder = None):
         """Deepfry an image."""
@@ -408,7 +385,6 @@ class DankMemer(commands.Cog):
         data.name = "deepfry.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def delete(self, ctx, image: ImageFinder = None):
         """Delete Meme."""
@@ -420,7 +396,6 @@ class DankMemer(commands.Cog):
         data.name = "delete.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def disability(self, ctx, image: ImageFinder = None):
         """Disability Meme."""
@@ -432,7 +407,6 @@ class DankMemer(commands.Cog):
         data.name = "disability.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def doglemon(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Dog and Lemon Meme.
@@ -446,7 +420,6 @@ class DankMemer(commands.Cog):
         data.name = "doglemon.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def door(self, ctx, image: ImageFinder = None):
         """Kick down the door meme."""
@@ -458,7 +431,6 @@ class DankMemer(commands.Cog):
         data.name = "door.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def egg(self, ctx, image: ImageFinder = None):
         """Turn your picture into an egg."""
@@ -484,7 +456,6 @@ class DankMemer(commands.Cog):
         data.name = "excuseme.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def expanddong(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Expanding?
@@ -498,7 +469,6 @@ class DankMemer(commands.Cog):
         data.name = "expanddong.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def facts(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Facts book.
@@ -512,7 +482,6 @@ class DankMemer(commands.Cog):
         data.name = "facts.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def failure(self, ctx, image: ImageFinder = None):
         """You're a failure meme."""
@@ -524,7 +493,6 @@ class DankMemer(commands.Cog):
         data.name = "failure.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def fakenews(self, ctx, image: ImageFinder = None):
         """Fake News."""
@@ -536,7 +504,6 @@ class DankMemer(commands.Cog):
         data.name = "fakenews.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def fedora(self, ctx, image: ImageFinder = None):
         """*Tips Fedora*."""
@@ -548,7 +515,6 @@ class DankMemer(commands.Cog):
         data.name = "fedora.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def floor(
         self,
@@ -571,7 +537,6 @@ class DankMemer(commands.Cog):
         data.name = "fedora.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def fuck(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Feck.
@@ -585,7 +550,6 @@ class DankMemer(commands.Cog):
         data.name = "fuck.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def garfield(
         self,
@@ -607,7 +571,6 @@ class DankMemer(commands.Cog):
         data.name = "garfield.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command(aliases=["rainbow", "lgbtq"])
     async def lgbt(self, ctx, image: ImageFinder = None):
         """Rainbow-fy your picture."""
@@ -619,7 +582,6 @@ class DankMemer(commands.Cog):
         data.name = "gay.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def goggles(self, ctx, image: ImageFinder = None):
         """Remember, safety goggles on."""
@@ -631,7 +593,6 @@ class DankMemer(commands.Cog):
         data.name = "goggles.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def hitler(self, ctx, image: ImageFinder = None):
         """Worse than hitler?."""
@@ -643,7 +604,6 @@ class DankMemer(commands.Cog):
         data.name = "hitler.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def humansgood(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Humans are wonderful things."""
@@ -654,7 +614,6 @@ class DankMemer(commands.Cog):
         data.name = "humansgood.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def inator(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Xinator."""
@@ -665,7 +624,6 @@ class DankMemer(commands.Cog):
         data.name = "inator.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command(aliases=["invertcolor", "invertcolors", "invercolours"])
     async def invertcolour(self, ctx, image: ImageFinder = None):
         """Invert the colour of an image."""
@@ -677,7 +635,6 @@ class DankMemer(commands.Cog):
         data.name = "invert.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def ipad(self, ctx, image: ImageFinder = None):
         """Put your picture on an ipad."""
@@ -689,7 +646,6 @@ class DankMemer(commands.Cog):
         data.name = "ipad.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def jail(self, ctx, image: ImageFinder = None):
         """Send yourself to jail."""
@@ -701,7 +657,6 @@ class DankMemer(commands.Cog):
         data.name = "jail.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def justpretending(
         self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
@@ -717,7 +672,6 @@ class DankMemer(commands.Cog):
         data.name = "justpretending.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def kimborder(self, ctx, image: ImageFinder = None):
         """Place yourself under mighty kim."""
@@ -729,7 +683,6 @@ class DankMemer(commands.Cog):
         data.name = "kimborder.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def knowyourlocation(
         self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)
@@ -745,7 +698,6 @@ class DankMemer(commands.Cog):
         data.name = "knowyourlocation.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()  # TODO: MP4s
     async def kowalski(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Kowlalski tapping.
@@ -771,7 +723,6 @@ class DankMemer(commands.Cog):
         data.name = "laid.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()  # TODO: MP4s
     async def letmein(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """LET ME IN."""
@@ -782,7 +733,6 @@ class DankMemer(commands.Cog):
         data.name = "letmein.mp4"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def lick(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Lick lick.
@@ -796,7 +746,6 @@ class DankMemer(commands.Cog):
         data.name = "lick.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def madethis(self, ctx, user: discord.Member, user2: discord.Member = None):
         """I made this!"""
@@ -816,7 +765,7 @@ class DankMemer(commands.Cog):
         data.name = "madethis.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
+    # MAYBE WE SHOULD REMOVE IT
     @commands.command()  # Support other urls soon
     async def magickify(self, ctx, image: ImageFinder = None):
         """Peform magik."""
@@ -828,7 +777,6 @@ class DankMemer(commands.Cog):
         data.name = "magik.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def master(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Yes master!
@@ -842,7 +790,6 @@ class DankMemer(commands.Cog):
         data.name = "master.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def meme(
         self,
@@ -882,7 +829,6 @@ class DankMemer(commands.Cog):
         data.name = "meme.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def note(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Pass a note back."""
@@ -893,7 +839,6 @@ class DankMemer(commands.Cog):
         data.name = "note.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def nothing(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Woah!
@@ -907,7 +852,7 @@ class DankMemer(commands.Cog):
         data.name = "nothing.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
+    @commands.command()
     @commands.command()
     async def ohno(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Oh no, it's stupid!"""
@@ -918,7 +863,6 @@ class DankMemer(commands.Cog):
         data.name = "ohno.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def piccolo(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Piccolo."""
@@ -929,7 +873,6 @@ class DankMemer(commands.Cog):
         data.name = "piccolo.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def plan(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Gru makes a plan.
@@ -943,7 +886,6 @@ class DankMemer(commands.Cog):
         data.name = "plan.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def presentation(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Lisa makes a presentation."""
@@ -954,7 +896,6 @@ class DankMemer(commands.Cog):
         data.name = "presentation.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def quote(
         self,
@@ -975,7 +916,6 @@ class DankMemer(commands.Cog):
         data.name = "quote.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def radialblur(self, ctx, image: ImageFinder = None):
         """Radiarblur-ify your picture.."""
@@ -987,7 +927,6 @@ class DankMemer(commands.Cog):
         data.name = "radialblur.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command(aliases=["restinpeace"])
     async def tombstone(self, ctx, image: ImageFinder = None):
         """Give a lucky person a tombstone."""
@@ -999,7 +938,6 @@ class DankMemer(commands.Cog):
         data.name = "rip.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def roblox(self, ctx, image: ImageFinder = None):
         """Turn yourself into a roblox character."""
@@ -1011,7 +949,6 @@ class DankMemer(commands.Cog):
         data.name = "roblox.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def salty(self, ctx, image: ImageFinder = None):
         """Add some salt."""
@@ -1023,7 +960,6 @@ class DankMemer(commands.Cog):
         data.name = "salty.gif"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def satan(self, ctx, image: ImageFinder = None):
         """Place your picture over Satan."""
@@ -1035,7 +971,6 @@ class DankMemer(commands.Cog):
         data.name = "satan.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def savehumanity(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """The secret to saving humanity."""
@@ -1046,7 +981,6 @@ class DankMemer(commands.Cog):
         data.name = "savehumanity.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def screams(self, ctx, user: discord.Member, user2: discord.Member = None):
         """Why can't you just be normal?
@@ -1069,7 +1003,6 @@ class DankMemer(commands.Cog):
         data.name = "screams.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def shit(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """I stepped in crap."""
@@ -1080,7 +1013,6 @@ class DankMemer(commands.Cog):
         data.name = "shit.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def sickban(self, ctx, image: ImageFinder = None):
         """Ban this sick filth!"""
@@ -1092,7 +1024,6 @@ class DankMemer(commands.Cog):
         data.name = "sickban.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def slap(self, ctx, user: discord.Member, user2: discord.Member = None):
         """*SLAPS*"""
@@ -1112,7 +1043,6 @@ class DankMemer(commands.Cog):
         data.name = "slap.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def slapsroof(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """This bad boy can fit so much in it."""
@@ -1123,7 +1053,6 @@ class DankMemer(commands.Cog):
         data.name = "slapsroof.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def sneakyfox(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """That sneaky fox.
@@ -1137,7 +1066,6 @@ class DankMemer(commands.Cog):
         data.name = "sneakyfox.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def spank(self, ctx, user: discord.Member, user2: discord.Member = None):
         """*spanks*"""
@@ -1157,7 +1085,6 @@ class DankMemer(commands.Cog):
         data.name = "spank.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def stroke(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """How to recognize a stroke?"""
@@ -1168,7 +1095,6 @@ class DankMemer(commands.Cog):
         data.name = "stroke.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def surprised(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Pikasuprised.
@@ -1182,7 +1108,6 @@ class DankMemer(commands.Cog):
         data.name = "surprised.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def sword(
         self,
@@ -1207,7 +1132,7 @@ class DankMemer(commands.Cog):
         data.name = "sword.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
+    @commands.command()
     @commands.command()
     async def thesearch(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """The search for intelligent life continues.."""
@@ -1218,7 +1143,6 @@ class DankMemer(commands.Cog):
         data.name = "thesearch.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def trash(self, ctx, image: ImageFinder = None):
         """Peter Parker trash."""
@@ -1230,7 +1154,6 @@ class DankMemer(commands.Cog):
         data.name = "trash.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def trigger(self, ctx, image: ImageFinder = None):
         """Triggerfied."""
@@ -1242,7 +1165,6 @@ class DankMemer(commands.Cog):
         data.name = "trigger.gif"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def tweet(
         self,
@@ -1267,7 +1189,6 @@ class DankMemer(commands.Cog):
         data.name = "tweet.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def ugly(self, ctx, image: ImageFinder = None):
         """Make a user ugly."""
@@ -1279,7 +1200,6 @@ class DankMemer(commands.Cog):
         data.name = "ugly.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def unpopular(
         self,
@@ -1300,7 +1220,6 @@ class DankMemer(commands.Cog):
         data.name = "unpopular.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def violence(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Violence is never the answer."""
@@ -1311,7 +1230,6 @@ class DankMemer(commands.Cog):
         data.name = "violence.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def violentsparks(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Some violent sparks.
@@ -1325,7 +1243,6 @@ class DankMemer(commands.Cog):
         data.name = "violentsparks.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def vr(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Woah, VR is so realistic."""
@@ -1336,7 +1253,6 @@ class DankMemer(commands.Cog):
         data.name = "vr.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def walking(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Walking Meme."""
@@ -1347,7 +1263,6 @@ class DankMemer(commands.Cog):
         data.name = "walking.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def wanted(self, ctx, image: ImageFinder = None):
         """Heard you're a wanted fugitive?"""
@@ -1359,7 +1274,6 @@ class DankMemer(commands.Cog):
         data.name = "wanted.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def warp(self, ctx, image: ImageFinder = None):
         """Warp?."""
@@ -1371,7 +1285,6 @@ class DankMemer(commands.Cog):
         data.name = "warp.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def whodidthis(self, ctx, image: ImageFinder = None):
         """Who did this?"""
@@ -1383,7 +1296,6 @@ class DankMemer(commands.Cog):
         data.name = "whodidthis.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def whothisis(
         self,
@@ -1401,7 +1313,6 @@ class DankMemer(commands.Cog):
         data.name = "whothisis.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def yomomma(self, ctx):
         """Yo momma!."""
@@ -1410,7 +1321,6 @@ class DankMemer(commands.Cog):
             return await self.send_error(ctx, data)
         await ctx.send(data["text"])
 
-    @commands.check(tokencheck)
     @commands.command()
     async def youtube(
         self,
@@ -1433,7 +1343,6 @@ class DankMemer(commands.Cog):
 
     # New Endpoints
 
-    @commands.check(tokencheck)
     @commands.command()
     async def wwe(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """WWE Meme.
@@ -1447,7 +1356,6 @@ class DankMemer(commands.Cog):
         data.name = "expandingwwe.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
     @commands.command()
     async def farmer(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Farmer.
