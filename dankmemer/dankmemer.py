@@ -13,11 +13,6 @@ from redbot.core.utils.predicates import MessagePredicate
 from .converters import ImageFinder
 
 
-async def tokencheck(ctx):
-    token = await ctx.bot.get_shared_api_tokens("imgen")
-    return bool(token.get("authorization"))
-
-
 class DankMemer(commands.Cog):
     """Dank Memer Commands."""
 
@@ -30,10 +25,6 @@ class DankMemer(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.config = Config.get_conf(self, identifier=95932766180343808, force_registration=True)
-        self.config.register_global(url="https://imgen.flaree.xyz/api")
-        self.session = aiohttp.ClientSession()
-        self.headers = {}
 
     async def red_get_data_for_user(self, *, user_id: int):
         # this cog does not story any data
@@ -44,17 +35,7 @@ class DankMemer(commands.Cog):
         pass
 
     def cog_unload(self):
-        self.bot.loop.create_task(self.session.close())
-
-    async def initalize(self):
-        self.api = await self.config.url()
-        token = await self.bot.get_shared_api_tokens("imgen")
-        self.headers = {"Authorization": token.get("authorization")}
-
-    @commands.Cog.listener()
-    async def on_red_api_tokens_update(self, service_name, api_tokens):
-        if service_name == "imgen":
-            self.headers = {"Authorization": api_tokens.get("authorization")}
+        pass
 
     async def send_error(self, ctx, data):
         await ctx.send(f"Oops, an error occured. `{data['error']}`")
@@ -92,42 +73,6 @@ class DankMemer(commands.Cog):
     def parse_text(self, text):
         return urllib.parse.quote(text)
 
-    @commands.command()
-    async def dankmemersetup(self, ctx):
-        """Instructions on how to setup DankMemer."""
-        msg = (
-            "You must host your own instance of imgen or apply for a publically available instance.\n"
-            f"You can then set the url endpoints using the `{ctx.clean_prefix}dmurl <url>` command. (Support will be limited if using your own instance.)\n\n"
-            f"You can set the token using `{ctx.clean_prefix}set api imgen authorization <key>`"
-        )
-        await ctx.maybe_send_embed(msg)
-
-    @commands.is_owner()
-    @commands.command()
-    async def dmurl(self, ctx, *, url: commands.clean_content(fix_channel_mentions=True)):
-        """Set the DankMemer API Url.
-
-        Ensure the url ends in API without the backslash - Example: https://imgen.flaree.xyz/api
-        Only use this if you have an instance already.
-        """
-        if not validators.url(url):
-            return await ctx.send(f"{url} doesn't seem to be a valid URL. Please try again.")
-        await ctx.send(
-            "This has the ability to make every command fail if the URL is not reachable and/or not working. Only use this if you're experienced enough to understand. Type yes to continue, otherwise type no."
-        )
-        try:
-            pred = MessagePredicate.yes_or_no(ctx, user=ctx.author)
-            await ctx.bot.wait_for("message", check=pred, timeout=20)
-        except asyncio.TimeoutError:
-            await ctx.send("Exiting operation.")
-            return
-
-        if pred.result:
-            await self.config.url.set(url)
-            await ctx.tick()
-            await self.initalize()
-        else:
-            await ctx.send("Operation cancelled.")
 
     @commands.check(tokencheck)
     @commands.command()
