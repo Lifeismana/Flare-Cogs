@@ -276,21 +276,6 @@ class DankMemer(commands.Cog):
         data.name = "cheating.png"
         await self.send_img(ctx, discord.File(data))
 
-    @commands.check(tokencheck)
-    @commands.command()
-    async def crab(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
-        """Crab rave.
-
-        Text must be comma seperated.
-        """
-        text = self.parse_text(text)
-        data = await self.get(ctx, f"/crab?text={text}")
-        if isinstance(data, dict):
-            return await self.send_error(ctx, data)
-        data.name = "crabrave.mp4"
-        await self.send_img(ctx, discord.File(data))
-
-    @commands.check(tokencheck)
     @commands.command()
     async def paperplease(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """Papers Please Citation.
