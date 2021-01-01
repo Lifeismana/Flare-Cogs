@@ -669,12 +669,10 @@ class DankMemer(commands.Cog):
         Text must be 2 comma seperated values.
         """
         data = movie.kowalski(self, text)
-        oldname = data.name
-        data.name = "kowalski.gif"
-        await self.send_img(ctx, discord.File(data))
+        await self.send_img(ctx, discord.File(data, "kowalski.gif"))
 
         try:
-            os.remove(oldname)
+            os.remove(data)
         except (FileNotFoundError, OSError, PermissionError):
             pass
 
@@ -694,8 +692,12 @@ class DankMemer(commands.Cog):
     async def letmein(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):
         """LET ME IN."""
         data = movie.letmein(self, text)
-        data.name = "letmein.mp4"
-        await self.send_img(ctx, discord.File(data))
+        await self.send_img(ctx, discord.File(data, "letmein.mp4"))
+
+        try:
+            os.remove(data)
+        except (FileNotFoundError, OSError, PermissionError):
+            pass
 
     @commands.command()
     async def lick(self, ctx, *, text: commands.clean_content(fix_channel_mentions=True)):

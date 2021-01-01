@@ -7,7 +7,7 @@ from redbot.core.data_manager import bundled_data_path
 
 
 def kowalski(self, text):
-    name = uuid.uuid4().hex + ".gif"
+    name = f"{bundled_data_path(self)}/{uuid.uuid4().hex}.gif"
 
     clip = VideoFileClip(f"{bundled_data_path(self)}/images/kowalski.gif")
     text = TextClip(
@@ -19,7 +19,7 @@ def kowalski(self, text):
         color="black",
         stroke_color="black",
         stroke_width=1,
-        font="Verdana",
+        font=f"{bundled_data_path(self)}/fonts/verdana.ttf",
     ).set_duration(clip.duration)
     text = text.set_position((340, 65)).set_duration(clip.duration)
     text = rotate(text, angle=10, resample="bilinear")
@@ -33,7 +33,9 @@ def kowalski(self, text):
 
 
 def letmein(self, text):
-    name = uuid.uuid4().hex + ".mp4"
+    name = f"{bundled_data_path(self)}/{uuid.uuid4().hex}"
+    name_mp4 = name + ".mp4"
+    name_mp3 = name + ".mp3"
     if len(text) >= 400:
         text = text[:400] + "..."
 
@@ -43,7 +45,7 @@ def letmein(self, text):
         txt=text,
         bg_color="White",
         fontsize=32,
-        font="Verdana",
+        font=f"{bundled_data_path(self)}/fonts/verdana.ttf",
         method="caption",
         align="west",
         size=(clip.size[0], None),
@@ -58,7 +60,7 @@ def letmein(self, text):
         size=(clip.size[0], textclip.size[1] + clip.size[1]),
     )
 
-    video.write_videofile(name, threads=4, preset="superfast", verbose=False)
+    video.write_videofile(name_mp4, threads=1, preset="superfast", verbose=False, temp_audiofile=name_mp3)
     clip.close()
     video.close()
-    return name
+    return name_mp4
